@@ -10,10 +10,15 @@
 		A28E78421B9BE40200D1DB6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E78411B9BE40200D1DB6F /* main.m */; };
 		A28E78451B9BE40200D1DB6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E78441B9BE40200D1DB6F /* AppDelegate.m */; };
 		A28E78481B9BE40200D1DB6F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E78471B9BE40200D1DB6F /* ViewController.m */; };
-		A28E784B1B9BE40200D1DB6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A28E78491B9BE40200D1DB6F /* Main.storyboard */; };
 		A28E784D1B9BE40200D1DB6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A28E784C1B9BE40200D1DB6F /* Images.xcassets */; };
 		A28E78501B9BE40200D1DB6F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28E784E1B9BE40200D1DB6F /* LaunchScreen.xib */; };
 		A28E785C1B9BE40200D1DB6F /* DPCycleScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E785B1B9BE40200D1DB6F /* DPCycleScrollViewTests.m */; };
+		A28E786A1B9BE42700D1DB6F /* DPCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E78671B9BE42700D1DB6F /* DPCycleScrollView.m */; };
+		A28E786B1B9BE42700D1DB6F /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E78691B9BE42700D1DB6F /* NSTimer+Addition.m */; };
+		A28E786F1B9BEA1700D1DB6F /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A28E786C1B9BEA1700D1DB6F /* 1.jpg */; };
+		A28E78701B9BEA1700D1DB6F /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A28E786D1B9BEA1700D1DB6F /* 2.jpg */; };
+		A28E78711B9BEA1700D1DB6F /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A28E786E1B9BEA1700D1DB6F /* 3.jpg */; };
+		A28E78731B9BEBFB00D1DB6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A28E78721B9BEBFB00D1DB6F /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,12 +39,19 @@
 		A28E78441B9BE40200D1DB6F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A28E78461B9BE40200D1DB6F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A28E78471B9BE40200D1DB6F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A28E784A1B9BE40200D1DB6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A28E784C1B9BE40200D1DB6F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A28E784F1B9BE40200D1DB6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A28E78551B9BE40200D1DB6F /* DPCycleScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DPCycleScrollViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28E785A1B9BE40200D1DB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A28E785B1B9BE40200D1DB6F /* DPCycleScrollViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPCycleScrollViewTests.m; sourceTree = "<group>"; };
+		A28E78661B9BE42700D1DB6F /* DPCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCycleScrollView.h; sourceTree = "<group>"; };
+		A28E78671B9BE42700D1DB6F /* DPCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCycleScrollView.m; sourceTree = "<group>"; };
+		A28E78681B9BE42700D1DB6F /* NSTimer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Addition.h"; sourceTree = "<group>"; };
+		A28E78691B9BE42700D1DB6F /* NSTimer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Addition.m"; sourceTree = "<group>"; };
+		A28E786C1B9BEA1700D1DB6F /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		A28E786D1B9BEA1700D1DB6F /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		A28E786E1B9BEA1700D1DB6F /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		A28E78721B9BEBFB00D1DB6F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +93,17 @@
 		A28E783E1B9BE40200D1DB6F /* DPCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				A28E78651B9BE42700D1DB6F /* DPCycleScrollView */,
 				A28E78431B9BE40200D1DB6F /* AppDelegate.h */,
 				A28E78441B9BE40200D1DB6F /* AppDelegate.m */,
 				A28E78461B9BE40200D1DB6F /* ViewController.h */,
 				A28E78471B9BE40200D1DB6F /* ViewController.m */,
-				A28E78491B9BE40200D1DB6F /* Main.storyboard */,
+				A28E78721B9BEBFB00D1DB6F /* Main.storyboard */,
 				A28E784C1B9BE40200D1DB6F /* Images.xcassets */,
 				A28E784E1B9BE40200D1DB6F /* LaunchScreen.xib */,
+				A28E786C1B9BEA1700D1DB6F /* 1.jpg */,
+				A28E786D1B9BEA1700D1DB6F /* 2.jpg */,
+				A28E786E1B9BEA1700D1DB6F /* 3.jpg */,
 				A28E783F1B9BE40200D1DB6F /* Supporting Files */,
 			);
 			path = DPCycleScrollView;
@@ -117,6 +133,17 @@
 				A28E785A1B9BE40200D1DB6F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A28E78651B9BE42700D1DB6F /* DPCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				A28E78661B9BE42700D1DB6F /* DPCycleScrollView.h */,
+				A28E78671B9BE42700D1DB6F /* DPCycleScrollView.m */,
+				A28E78681B9BE42700D1DB6F /* NSTimer+Addition.h */,
+				A28E78691B9BE42700D1DB6F /* NSTimer+Addition.m */,
+			);
+			path = DPCycleScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +226,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A28E784B1B9BE40200D1DB6F /* Main.storyboard in Resources */,
+				A28E786F1B9BEA1700D1DB6F /* 1.jpg in Resources */,
+				A28E78701B9BEA1700D1DB6F /* 2.jpg in Resources */,
+				A28E78711B9BEA1700D1DB6F /* 3.jpg in Resources */,
+				A28E78731B9BEBFB00D1DB6F /* Main.storyboard in Resources */,
 				A28E78501B9BE40200D1DB6F /* LaunchScreen.xib in Resources */,
 				A28E784D1B9BE40200D1DB6F /* Images.xcassets in Resources */,
 			);
@@ -219,8 +249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28E786A1B9BE42700D1DB6F /* DPCycleScrollView.m in Sources */,
 				A28E78481B9BE40200D1DB6F /* ViewController.m in Sources */,
 				A28E78451B9BE40200D1DB6F /* AppDelegate.m in Sources */,
+				A28E786B1B9BE42700D1DB6F /* NSTimer+Addition.m in Sources */,
 				A28E78421B9BE40200D1DB6F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +276,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A28E78491B9BE40200D1DB6F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A28E784A1B9BE40200D1DB6F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A28E784E1B9BE40200D1DB6F /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
