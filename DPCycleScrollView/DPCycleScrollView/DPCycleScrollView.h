@@ -39,6 +39,8 @@
 //View翻页动画时间
 @property (nonatomic, assign) CGFloat animateDuration;
 
+- (void)setCurrentPage:(NSInteger)index;
+
 //NSTimer停止
 - (void)free;
 //暂停翻滚

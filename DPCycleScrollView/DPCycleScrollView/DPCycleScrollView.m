@@ -119,6 +119,16 @@
     [self reloadData];
 }
 
+- (void)setCurrentPage:(NSInteger)index
+{
+    curPage = [self validPageValue:index];
+    [self reloadData];
+    
+    if (delegate && [delegate respondsToSelector:@selector(cycleScrollView:didScrollToPageAtIndex:)]) {
+        [delegate cycleScrollView:self didScrollToPageAtIndex:curPage];
+    }
+}
+
 - (void)reloadData
 {
     totalPages = [datasource numberOfPagesInCycleScrollView:self];
@@ -159,7 +169,6 @@
         v.frame = CGRectOffset(v.frame, v.frame.size.width * i, 0);
         [scrollView addSubview:v];
     }
-    [scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height)];
     [scrollView setContentOffset:CGPointMake(scrollView.frame.size.width, 0)];
     
     [self layoutIfNeeded];
@@ -182,8 +191,8 @@
 
 - (NSInteger)validPageValue:(NSInteger)value {
     
-    if(value == -1) value = totalPages - 1;
-    if(value == totalPages) value = 0;
+    if(value < 0) value = totalPages - 1;
+    if(value > totalPages - 1) value = 0;
     
     return value;
 }
