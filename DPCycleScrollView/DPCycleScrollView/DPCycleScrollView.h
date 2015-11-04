@@ -27,8 +27,13 @@
 @property (nonatomic, assign) id<DPCycleScrollViewDelegate> delegate;
 @property (nonatomic, assign) id<DPCycleScrollViewDatasource> datasource;
 
+//滚动视图容器
+@property (strong, nonatomic, readonly) UIScrollView *scrollView;
+
 //是否自动翻页
 @property (nonatomic, assign) BOOL autoScroll;
+//是否显示Pagecontrol(页数大于1时，小于或等于1时均隐藏)
+@property (nonatomic, assign) BOOL showPagecontrol;
 //两个View翻页时间间隔
 @property (nonatomic, assign) NSTimeInterval animationInterval;
 //View翻页动画时间

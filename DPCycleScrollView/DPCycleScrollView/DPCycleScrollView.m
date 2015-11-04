@@ -13,7 +13,6 @@
 @property (assign, nonatomic) NSInteger totalPages;
 @property (assign, nonatomic) NSInteger curPage;
 @property (strong, nonatomic) NSMutableArray *curViews;
-@property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UIPageControl *pageControl;
 @property (strong, nonatomic) NSTimer *animationTimer;
 
@@ -23,6 +22,7 @@
 @synthesize delegate;
 @synthesize datasource;
 @synthesize autoScroll;
+@synthesize showPagecontrol;
 @synthesize animationInterval;
 @synthesize animateDuration;
 @synthesize totalPages;
@@ -56,11 +56,17 @@
         curPage = 0;
         //自动翻页
         autoScroll = YES;
+        showPagecontrol = YES;
         animationInterval = 5.f;
         animateDuration = 0.5f;
         [self setupAnimationTimer];
     }
     return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
 }
 
 - (void)dealloc
@@ -75,6 +81,18 @@
     autoScroll = scroll;
     [animationTimer invalidate];
     [self setupAnimationTimer];
+}
+
+- (void)setShowPagecontrol:(BOOL)show
+{
+    showPagecontrol = show;
+    if (totalPages == 0 || totalPages < 0) {
+        pageControl.hidden = YES;
+    }else if (totalPages == 1) {
+        pageControl.hidden = YES;
+    }else {
+        pageControl.hidden = !showPagecontrol;
+    }
 }
 
 - (void)setAnimationInterval:(NSTimeInterval)interval
@@ -105,13 +123,14 @@
 {
     totalPages = [datasource numberOfPagesInCycleScrollView:self];
     if (totalPages == 0 || totalPages < 0) {
+        pageControl.hidden = YES;
         return;
     }else if (totalPages == 1) {
         scrollView.scrollEnabled = NO;
         pageControl.hidden = YES;
     }else {
         scrollView.scrollEnabled = YES;
-        pageControl.hidden = NO;
+        pageControl.hidden = !showPagecontrol;
     }
     pageControl.numberOfPages = totalPages;
     [self loadData];
@@ -120,6 +139,8 @@
 - (void)loadData
 {
     pageControl.currentPage = curPage;
+    
+    [self setNeedsLayout];
     
     //从scrollView上移除所有的subview
     NSArray *subViews = [scrollView subviews];
@@ -138,8 +159,10 @@
         v.frame = CGRectOffset(v.frame, v.frame.size.width * i, 0);
         [scrollView addSubview:v];
     }
-    
+    [scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height)];
     [scrollView setContentOffset:CGPointMake(scrollView.frame.size.width, 0)];
+    
+    [self layoutIfNeeded];
 }
 
 - (void)getDisplayViewsWithCurpage:(NSInteger)page
