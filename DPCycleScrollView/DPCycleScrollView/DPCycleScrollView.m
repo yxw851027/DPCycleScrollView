@@ -72,6 +72,7 @@
 - (void)dealloc
 {
     scrollView = nil;
+    curViews = nil;
     pageControl = nil;
     animationTimer = nil;
 }
@@ -206,25 +207,27 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
-    int x = aScrollView.contentOffset.x;
-    
-    //往下翻一张
-    if(x >= (2*self.frame.size.width)) {
-        curPage = [self validPageValue:curPage+1];
-        [self loadData];
+    if (aScrollView == scrollView) {
+        int x = aScrollView.contentOffset.x;
         
-        if (delegate && [delegate respondsToSelector:@selector(cycleScrollView:didScrollToPageAtIndex:)]) {
-            [delegate cycleScrollView:self didScrollToPageAtIndex:curPage];
+        //往下翻一张
+        if(x >= (2*self.frame.size.width)) {
+            curPage = [self validPageValue:curPage+1];
+            [self loadData];
+            
+            if (delegate && [delegate respondsToSelector:@selector(cycleScrollView:didScrollToPageAtIndex:)]) {
+                [delegate cycleScrollView:self didScrollToPageAtIndex:curPage];
+            }
         }
-    }
-    
-    //往上翻
-    if(x <= 0) {
-        curPage = [self validPageValue:curPage-1];
-        [self loadData];
         
-        if (delegate && [delegate respondsToSelector:@selector(cycleScrollView:didScrollToPageAtIndex:)]) {
-            [delegate cycleScrollView:self didScrollToPageAtIndex:curPage];
+        //往上翻
+        if(x <= 0) {
+            curPage = [self validPageValue:curPage-1];
+            [self loadData];
+            
+            if (delegate && [delegate respondsToSelector:@selector(cycleScrollView:didScrollToPageAtIndex:)]) {
+                [delegate cycleScrollView:self didScrollToPageAtIndex:curPage];
+            }
         }
     }
 }
@@ -232,17 +235,23 @@
 //ScrollView的手势操作
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)aScrollView
 {
-    [scrollView setContentOffset:CGPointMake(scrollView.frame.size.width, 0) animated:YES];
+    if (aScrollView == scrollView) {
+        [scrollView setContentOffset:CGPointMake(scrollView.frame.size.width, 0) animated:YES];
+    }
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+- (void)scrollViewWillBeginDragging:(UIScrollView *)aScrollView
 {
-    [self.animationTimer pauseTimer];
+    if (aScrollView == scrollView) {
+        [self.animationTimer pauseTimer];
+    }
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+- (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView willDecelerate:(BOOL)decelerate
 {
-    [self.animationTimer resumeTimerAfterTimeInterval:self.animationInterval];
+    if (aScrollView == scrollView) {
+        [self.animationTimer resumeTimerAfterTimeInterval:self.animationInterval];
+    }
 }
 
 #pragma mark - Timer
