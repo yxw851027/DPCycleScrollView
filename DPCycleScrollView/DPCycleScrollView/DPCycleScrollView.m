@@ -33,35 +33,49 @@
 @synthesize animationTimer;
 
 #pragma mark - life cycle
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        scrollView.delegate = self;
-        scrollView.contentSize = CGSizeMake(self.bounds.size.width * 3, self.bounds.size.height);
-        scrollView.showsHorizontalScrollIndicator = NO;//水平线
-        scrollView.contentOffset = CGPointMake(self.bounds.size.width, 0);
-        scrollView.pagingEnabled = YES;
-        scrollView.scrollsToTop = NO;
-        [self addSubview:scrollView];
-        
-        CGRect rect = self.bounds;
-        rect.origin.y = rect.size.height - 30;
-        rect.size.height = 30;
-        pageControl = [[UIPageControl alloc] initWithFrame:rect];
-        pageControl.userInteractionEnabled = NO;
-        [self addSubview:pageControl];
-        
-        curPage = 0;
-        //自动翻页
-        autoScroll = YES;
-        showPagecontrol = YES;
-        animationInterval = 5.f;
-        animateDuration = 0.5f;
-        [self setupAnimationTimer];
+        [self setup];
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup
+{
+    scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+    scrollView.delegate = self;
+    scrollView.contentSize = CGSizeMake(self.bounds.size.width * 3, self.bounds.size.height);
+    scrollView.showsHorizontalScrollIndicator = NO;//水平线
+    scrollView.contentOffset = CGPointMake(self.bounds.size.width, 0);
+    scrollView.pagingEnabled = YES;
+    scrollView.scrollsToTop = NO;
+    [self addSubview:scrollView];
+    
+    CGRect rect = self.bounds;
+    rect.origin.y = rect.size.height - 30;
+    rect.size.height = 30;
+    pageControl = [[UIPageControl alloc] initWithFrame:rect];
+    pageControl.userInteractionEnabled = NO;
+    [self addSubview:pageControl];
+    
+    curPage = 0;
+    //自动翻页
+    autoScroll = YES;
+    showPagecontrol = YES;
+    animationInterval = 5.f;
+    animateDuration = 0.5f;
+    [self setupAnimationTimer];
 }
 
 - (void)layoutSubviews
