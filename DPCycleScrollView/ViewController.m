@@ -64,7 +64,7 @@
 
 - (UIView *)cycleScrollView:(DPCycleScrollView *)csView pageAtIndex:(NSInteger)index
 {
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:csView.bounds];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.clipsToBounds = YES;
     imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", @(index + 1)]];

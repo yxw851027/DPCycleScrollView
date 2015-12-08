@@ -22,6 +22,7 @@
 - (UIView *)cycleScrollView:(DPCycleScrollView *)csView pageAtIndex:(NSInteger)index;
 @end
 
+IB_DESIGNABLE
 @interface DPCycleScrollView : UIView<UIScrollViewDelegate>
 
 @property (nonatomic, assign) id<DPCycleScrollViewDelegate> delegate;
@@ -31,14 +32,15 @@
 @property (strong, nonatomic, readonly) UIScrollView *scrollView;
 
 //是否自动翻页
-@property (nonatomic, assign) BOOL autoScroll;
+@property (nonatomic, assign) IBInspectable BOOL autoScroll;
 //是否显示Pagecontrol(页数大于1时，小于或等于1时均隐藏)
-@property (nonatomic, assign) BOOL showPagecontrol;
+@property (nonatomic, assign) IBInspectable BOOL showPagecontrol;
 //两个View翻页时间间隔
-@property (nonatomic, assign) NSTimeInterval animationInterval;
+@property (nonatomic, assign) IBInspectable CGFloat animationInterval;
 //View翻页动画时间
-@property (nonatomic, assign) CGFloat animateDuration;
+@property (nonatomic, assign) IBInspectable CGFloat animateDuration;
 
+//设置当前页
 - (void)setCurrentPage:(NSInteger)index;
 
 //NSTimer停止
