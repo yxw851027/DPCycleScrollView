@@ -18,7 +18,6 @@
 		A28E786F1B9BEA1700D1DB6F /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A28E786C1B9BEA1700D1DB6F /* 1.jpg */; };
 		A28E78701B9BEA1700D1DB6F /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A28E786D1B9BEA1700D1DB6F /* 2.jpg */; };
 		A28E78711B9BEA1700D1DB6F /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A28E786E1B9BEA1700D1DB6F /* 3.jpg */; };
-		A28E78731B9BEBFB00D1DB6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A28E78721B9BEBFB00D1DB6F /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +50,6 @@
 		A28E786C1B9BEA1700D1DB6F /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		A28E786D1B9BEA1700D1DB6F /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		A28E786E1B9BEA1700D1DB6F /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		A28E78721B9BEBFB00D1DB6F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +96,6 @@
 				A28E78441B9BE40200D1DB6F /* AppDelegate.m */,
 				A28E78461B9BE40200D1DB6F /* ViewController.h */,
 				A28E78471B9BE40200D1DB6F /* ViewController.m */,
-				A28E78721B9BEBFB00D1DB6F /* Main.storyboard */,
 				A28E784C1B9BE40200D1DB6F /* Images.xcassets */,
 				A28E784E1B9BE40200D1DB6F /* LaunchScreen.xib */,
 				A28E786C1B9BEA1700D1DB6F /* 1.jpg */,
@@ -229,7 +226,6 @@
 				A28E786F1B9BEA1700D1DB6F /* 1.jpg in Resources */,
 				A28E78701B9BEA1700D1DB6F /* 2.jpg in Resources */,
 				A28E78711B9BEA1700D1DB6F /* 3.jpg in Resources */,
-				A28E78731B9BEBFB00D1DB6F /* Main.storyboard in Resources */,
 				A28E78501B9BE40200D1DB6F /* LaunchScreen.xib in Resources */,
 				A28E784D1B9BE40200D1DB6F /* Images.xcassets in Resources */,
 			);
@@ -440,6 +436,7 @@
 				A28E78611B9BE40200D1DB6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A28E78621B9BE40200D1DB6F /* Build configuration list for PBXNativeTarget "DPCycleScrollViewTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +445,7 @@
 				A28E78641B9BE40200D1DB6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

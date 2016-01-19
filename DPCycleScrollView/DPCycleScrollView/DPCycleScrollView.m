@@ -85,6 +85,9 @@
 
 - (void)dealloc
 {
+    delegate = nil;
+    datasource = nil;
+    [animationTimer invalidate];
     scrollView = nil;
     curViews = nil;
     pageControl = nil;
@@ -130,8 +133,12 @@
 
 - (void)setDatasource:(id<DPCycleScrollViewDatasource>)aDatasource
 {
-    datasource = aDatasource;
-    [self reloadData];
+    if (datasource != aDatasource) {
+        datasource = aDatasource;
+        if (datasource) {
+            [self reloadData];
+        }
+    }
 }
 
 - (void)setCurrentPage:(NSInteger)index
@@ -146,7 +153,11 @@
 
 - (void)reloadData
 {
-    totalPages = [datasource numberOfPagesInCycleScrollView:self];
+    if (datasource && [datasource respondsToSelector:@selector(numberOfPagesInCycleScrollView:)]) {
+        totalPages = [datasource numberOfPagesInCycleScrollView:self];
+    }else {
+        return;
+    }
     if (totalPages == 0 || totalPages < 0) {
         pageControl.hidden = YES;
         return;
@@ -175,16 +186,18 @@
     
     [self getDisplayViewsWithCurpage:curPage];
     
-    for (int i = 0; i < 3; i++) {
-        UIView *v = [curViews objectAtIndex:i];
-        v.userInteractionEnabled = YES;
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                    action:@selector(handleTap:)];
-        [v addGestureRecognizer:singleTap];
-        v.frame = CGRectOffset(v.frame, v.frame.size.width * i, 0);
-        [scrollView addSubview:v];
+    if (curViews.count >= 3) {
+        for (int i = 0; i < 3; i++) {
+            UIView *v = [curViews objectAtIndex:i];
+            v.userInteractionEnabled = YES;
+            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                        action:@selector(handleTap:)];
+            [v addGestureRecognizer:singleTap];
+            v.frame = CGRectOffset(v.frame, v.frame.size.width * i, 0);
+            [scrollView addSubview:v];
+        }
+        [scrollView setContentOffset:CGPointMake(scrollView.frame.size.width, 0)];
     }
-    [scrollView setContentOffset:CGPointMake(scrollView.frame.size.width, 0)];
     
     [self layoutIfNeeded];
 }
@@ -199,9 +212,11 @@
     }
     
     [curViews removeAllObjects];
-    [curViews addObject:[datasource cycleScrollView:self pageAtIndex:pre]];
-    [curViews addObject:[datasource cycleScrollView:self pageAtIndex:page]];
-    [curViews addObject:[datasource cycleScrollView:self pageAtIndex:last]];
+    if (datasource && [datasource respondsToSelector:@selector(cycleScrollView:pageAtIndex:)]) {
+        [curViews addObject:[datasource cycleScrollView:self pageAtIndex:pre]];
+        [curViews addObject:[datasource cycleScrollView:self pageAtIndex:page]];
+        [curViews addObject:[datasource cycleScrollView:self pageAtIndex:last]];
+    }
 }
 
 - (NSInteger)validPageValue:(NSInteger)value {
@@ -323,6 +338,8 @@
 //减少父控件的引用计数
 - (void)free
 {
+    delegate = nil;
+    datasource = nil;
     [animationTimer invalidate];
 }
 
