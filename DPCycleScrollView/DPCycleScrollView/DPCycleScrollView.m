@@ -159,6 +159,7 @@
         return;
     }
     if (totalPages == 0 || totalPages < 0) {
+        scrollView.scrollEnabled = NO;
         pageControl.hidden = YES;
         return;
     }else if (totalPages == 1) {
