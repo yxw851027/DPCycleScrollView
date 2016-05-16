@@ -34,3 +34,6 @@
 	{
     	NSLog(@"clickPageAtIndex:%@", @(index));
 	}
+	
+# License
+DPCycleScrollView is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
